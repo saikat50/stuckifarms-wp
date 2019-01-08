@@ -1,5 +1,6 @@
 wp-admin/
 wp-includes/
+wp-content/uploads/
 index.php
 license.txt
 readme.html
