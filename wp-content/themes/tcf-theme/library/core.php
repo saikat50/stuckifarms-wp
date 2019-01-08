@@ -183,27 +183,21 @@ function tcf_scripts_and_styles() {
 		wp_register_style( 'segoe-ui', get_template_directory_uri() . '/assets/css/segoe-ui.css', array(), '', 'all' );
 		wp_enqueue_style( 'segoe-ui' );
 
+		// PROXIMA NOVA
+		wp_register_style( 'proxima-nova', get_template_directory_uri() . '/assets/css/proxima-nova.css', array(), '', 'all' );
+		wp_enqueue_style( 'proxima-nova' );
+
 		// OWL CAROUSEL 
-		wp_register_style( 'owl-carousel', get_template_directory_uri() . '/assets/owl/assets/owl.carousel.min.css', array(), '', 'all' );
+		wp_register_style( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl/assets/owl.carousel.min.css', array(), '', 'all' );
 		wp_enqueue_style( 'owl-carousel' );
 
-		wp_register_script( 'owl-carousel', get_template_directory_uri() . '/assets/owl/owl.carousel.min.js', array( 'jquery' ), '', true );
+		wp_register_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl/owl.carousel.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'owl-carousel' );
 
 	    // comment reply script for threaded comments
 	    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
 			  wp_enqueue_script( 'comment-reply' );
 	    }
-
-		//adding scripts file in the footer
-
-		
-
-
-	  
-
-		// wp_register_script( 'app', get_template_directory_uri() . '/app/js/app.js', array( 'jquery' ), '', true );
-		// wp_enqueue_script( 'app' );
 
 
 	}

@@ -3,17 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title><?php wp_title(''); ?></title>
-
-		<?php // mobile meta (hooray!) ?>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" type="image/png" href="/wp-content/uploads/logo-icon.png"/>
 		<?php wp_head(); ?>
-
-
 	</head>
-	<body <?php echo 'class="'.join(' ', get_body_class()).'"'.PHP_EOL; ?> data-spy="scroll" data-offset="0" data-target="#navigation">
+	<body <?php echo 'class="'.join(' ', get_body_class()).'"'.PHP_EOL; ?>>
 
 	<header class="sticky-top bg-white">
 		<div class="container">

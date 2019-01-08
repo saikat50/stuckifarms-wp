@@ -1,0 +1,19 @@
+
+@font-face {
+    font-family: 'segoe-ui';
+    src: url('../webfonts/proximanova-webfont.eot');
+    src: url('../webfonts/proximanova-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/proximanova-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'segoe-ui';
+    src: url('../webfonts/proximanova-sbold-webfont.eot');
+    src: url('../webfonts/proximanova-sbold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/proximanova-sbold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
