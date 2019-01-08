@@ -13,8 +13,8 @@
 	<header class="sticky-top bg-white">
 		<div class="container">
 			<nav class="navbar navbar-expand-lg">
-				<a class="navbar-brand" href="#">
-					<img src="/wp-content/uploads/logo-sm.png" alt="Planstin" class="img-fluid">
+				<a class="navbar-brand" href="/">
+					<img src="<?php echo the_field('logo', 'option'); ?>" alt="Planstin" class="img-fluid">
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="far fa-bars"></i>
