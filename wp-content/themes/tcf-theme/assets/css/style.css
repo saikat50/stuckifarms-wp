@@ -1,0 +1,148 @@
+/**********
+Site Theme
+***********/
+.link,
+.link:hover,
+.link:focus,
+.link.active {
+	color: inherit;
+}
+.bg-theme,
+.btn-theme {
+	background-color: #31661E;
+}
+.text-theme,
+.btn-link.btn-link-theme,
+.nav-link.nav-link-theme
+{
+	color: #31661E;
+}
+
+.text-theme-dark,
+.btn-link.btn-link-theme.active,
+.btn-link.btn-link-theme:hover,
+.btn-link.btn-link-theme:focus,
+.nav-link.nav-link-theme.active,
+.nav-link.nav-link-theme:hover,
+.nav-link.nav-link-theme:focus
+{
+	color: #214812;
+}
+
+.bg-theme-dark,
+.btn-theme.active,
+.btn-theme:hover,
+.btn-theme:focus {
+	background-color: #214812;
+}
+
+.text-secondary {
+	color: #541B00;
+}
+.bg-secondary {
+	background-color: #541B00;
+}
+
+
+.bg-white, {
+	background-color: #FFFFFF;
+}
+.text-white,
+.btn-theme,
+.btn-theme.active,
+.btn-theme:hover,
+.btn-theme:focus,
+.link-white,
+.link-white.active,
+.link-white:focus,
+.link-white:hover
+{
+	color: #FFFFFF;
+}
+
+.btn-rounded {
+	border-radius: 50px;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.btn-square {
+	border-radius: 0;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.card-deck.clean .card,
+.card-deck.clean .card-footer {
+	border: none;
+}
+
+.card-deck.clean .card-footer {
+	background-color: inherit;
+}
+
+/**************
+Site Style
+**************/
+
+body {
+	font-family: 'segoe-ui';
+	color: #707070;
+}
+
+header {
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.nav-link {
+	text-transform: uppercase;
+	font-size: 1.1rem;
+}
+
+@media (min-width: 992px){
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: .75rem;
+		padding-left: .75rem;
+	}
+}
+
+.owl-dots {
+	text-align: center;
+	padding-top: 1rem;
+}
+.owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    background: #D6D6D6;
+    display: block;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+}
+
+.owl-dots .owl-dot.active span,
+.owl-dots .owl-dot:hover span {
+    background: #869791;
+}
+
+footer {
+	font-size: 0.8rem;
+}
+
+footer h4 {
+	font-size: 1rem;
+}
+
+@media(min-width: 991px){
+	.card-deck-lg {
+		margin-left: -45px;
+		margin-right: -45px;
+		margin-bottom: 45px;
+	}
+	.card-deck-lg + .card-deck-lg {
+		margin-top: 90px;
+	}
+	.card-deck-lg > .card {
+		margin-left: 45px;
+		margin-right: 45px;
+	}
+}
