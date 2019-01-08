@@ -352,6 +352,25 @@ function template_scripts_and_styles(){
 }
 
 
+function get_assets_directory(){
+    return get_template_directory_uri() . '/assets';
+}
+function get_img_directory(){
+    return get_assets_directory() . '/img';
+}
+function page_title_block($title = '', $image = ''){
+    if(!$image){
+        $image = get_img_directory() . '/header-villa.png';
+    }
+    load_include('page-title', ['title' => $title, 'image' => $image]);
+}
 
+function load_include($file, $args = []){
+    $filename = 'includes/' . $file . '.php';
+    extract($args);
+    global $post;   
+
+    include(  locate_template( $filename ) ); 
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
