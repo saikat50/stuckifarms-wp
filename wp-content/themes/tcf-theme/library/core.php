@@ -169,6 +169,9 @@ function tcf_scripts_and_styles() {
 		wp_register_style( 'fa-regular', get_template_directory_uri() . '/assets/css/regular.css', array(), '', 'all' );
 		wp_enqueue_style( 'fa-regular' );
 
+		wp_register_style( 'fa-brands', get_template_directory_uri() . '/assets/css/brands.css', array(), '', 'all' );
+		wp_enqueue_style( 'fa-brands' );
+
 		// BOOTSTRAP 4
 		wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '', 'all' );
 		wp_enqueue_style( 'bootstrap' );
