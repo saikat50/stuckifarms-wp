@@ -92,6 +92,16 @@ Site Theme
 	background-color: inherit;
 }
 
+/**********
+Site Typography
+***********/
+.heading-alt {
+	font-family: 'proxima-nova';
+	font-weight: bold;
+	color: #000;
+}
+
+
 /**************
 Site Style
 **************/
@@ -266,4 +276,64 @@ footer .list-inline li a {
 		margin-left: 45px;
 		margin-right: 45px;
 	}
+}
+
+
+.live-here-breadcrumbs {
+	font-size: 1.075rem;
+	text-transform: uppercase;
+	text-align: center;
+}
+.live-here-breadcrumbs .breadcrumbs > div {
+	display: inline-block;
+	margin: 0 15px;
+
+}
+.live-here-breadcrumbs .breadcrumbs > div:not(:last-child) {
+	border-right: solid 1px #FFFFFF;
+	padding-right: 15px;
+	margin-right: 0;
+}
+.live-here-breadcrumbs a {
+	opacity: 0.8;
+}
+.live-here-breadcrumbs a.active,
+.live-here-breadcrumbs a:hover {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+.pagination .page-link {
+	margin: 0 5px;
+	min-width: 40px;
+	text-align: center;
+}
+.pagination .number .page-link {
+	border-radius: 50% !important;
+	border-color: #768791;
+	color: #768791;
+}
+.pagination .number.active .page-link {
+	color: #FFF;
+	background-color: #768791;
+}
+.pagination .arrow .page-link {
+	border: none;
+	color: #768791;
+}
+.pagination {
+	justify-content: center;
+	align-content: center;
+	margin-bottom: 0;
+	position: relative;
+	padding: 0 80px;
+}
+
+.pagination .arrow:last-child {
+	position: absolute;
+	right: 0;
+}
+.pagination .arrow:first-child {
+	position: absolute;
+	left: 0;
 }

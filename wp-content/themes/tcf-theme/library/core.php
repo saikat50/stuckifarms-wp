@@ -22,36 +22,12 @@ function my_acf_settings_dir( $dir ) {
 // }else{
 // 	add_filter('acf/settings/show_admin', '__return_false');
 // }
+
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/library/plugins/acf/acf.php' );
-/// End Add ACF Pro
 
-acf_add_options_page(array(
-		'page_title' 	=> 'TCF Theme',
-		'menu_title' 	=> 'TCF Theme',
-		'menu_slug' 	=> 'tcf-theme',
-		'capability' 	=> 'edit_posts',
-		'position' => 30,
-		'icon_url' => get_stylesheet_directory_uri() . '/library/images/g_20.png'
-	));
+include_once( get_stylesheet_directory() . '/library/theme-options.php');
 
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Home Page Slider',
-		'menu_title'	=> 'Home Page Slider',
-		'parent_slug'	=> 'tcf-theme',
-	));
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Website Social Media',
-		'menu_title'	=> 'Social Media',
-		'parent_slug'	=> 'tcf-theme',
-	));
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Business Information',
-		'menu_title'	=> 'Business Info',
-		'parent_slug'	=> 'tcf-theme',
-	));
-
-include('acf.php');
 /*********************
 WP_HEAD GOODNESS
 The default wordpress head is
@@ -293,25 +269,45 @@ PAGE NAVI
 *********************/
 
 // Numeric Page Navi (built into the theme by default)
-function tcf_page_navi() {
-  global $wp_query;
-  $bignum = 999999999;
-  if ( $wp_query->max_num_pages <= 1 )
-    return;
-  echo '<nav class="pagination">';
-  echo paginate_links( array(
-    'base'         => str_replace( $bignum, '%#%', esc_url( get_pagenum_link($bignum) ) ),
-    'format'       => '',
-    'current'      => max( 1, get_query_var('paged') ),
-    'total'        => $wp_query->max_num_pages,
-    'prev_text'    => '&larr;',
-    'next_text'    => '&rarr;',
-    'type'         => 'list',
-    'end_size'     => 3,
-    'mid_size'     => 3
-  ) );
-  echo '</nav>';
-} /* end page navi */
+function tcf_page_navi($wp_query = null) {
+	if(!$wp_query){
+  		global $wp_query;
+	}
+
+	if ( null === $wp_query ) {
+		global $wp_query;
+	}
+
+	$pages = paginate_links([
+		'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+		'format'       => '?paged=%#%',
+		'current'      => max( 1, get_query_var( 'paged' ) ),
+		'total'        => $wp_query->max_num_pages,
+		'type'         => 'array',
+		'show_all'     => false,
+		'end_size'     => 3,
+		'mid_size'     => 1,
+		'prev_next'    => true,
+		'prev_text'    => __( '<i class="far fa-arrow-left"></i> Prev' ),
+		'next_text'    => __( 'Next <i class="far fa-arrow-right"></i>' ),
+		'add_args'     => false,
+		'add_fragment' => ''
+	]);
+
+	if ( is_array( $pages ) ) {
+		//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+		$pagination = '<nav>';
+		$pagination .= '<ul class="pagination">';
+		foreach ( $pages as $page ) {
+			$pagination .= '<li class="page-item '. (strpos($page, 'next') !== false || strpos($page, 'prev') !== false ? 'arrow' : 'number') .' '.(strpos($page, 'current') !== false ? 'active' : '').'"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
+		}
+		$pagination .= '</ul>';
+		$pagination .= '</nav>';
+
+		echo $pagination;
+	}
+}
+
 
 /*********************
 RANDOM CLEANUP ITEMS

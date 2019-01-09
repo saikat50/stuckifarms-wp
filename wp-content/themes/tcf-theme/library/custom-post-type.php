@@ -17,6 +17,8 @@ URL: http://themble.com/bones/
 // Flush rewrite rules for custom post types
 add_action( 'after_switch_theme', 'bones_flush_rewrite_rules' );
 
+//flush_rewrite_rules();
+
 // Flush your rewrite rules
 function bones_flush_rewrite_rules() {
 	flush_rewrite_rules();
@@ -49,7 +51,7 @@ function custom_post_example() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
-			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
+			'menu_icon' => 'dashicons-admin-site', /* the icon for the custom post type menu */
 			'rewrite'	=> array( 'slug' => 'custom_type', 'with_front' => false, 'feed' => true ), /* you can specify its url slug */
 			'has_archive' => 'custom_type', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -59,21 +61,7 @@ function custom_post_example() {
 		) /* end of options */
 	); /* end of register post type */
 	
-	/* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type( 'category', 'custom_type' );
-	/* this adds your post tags to your custom post type */
-	register_taxonomy_for_object_type( 'post_tag', 'custom_type' );
-	
-}
 
-	// adding the function to the Wordpress init
-	add_action( 'init', 'custom_post_example');
-	
-	/*
-	for more information on taxonomies, go here:
-	http://codex.wordpress.org/Function_Reference/register_taxonomy
-	*/
-	
 	// now let's add custom categories (these act like categories)
 	register_taxonomy( 'custom_cat', 
 		array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
@@ -118,12 +106,425 @@ function custom_post_example() {
 			'query_var' => true,
 		)
 	);
+
+
+	/* this adds your post categories to your custom post type */
+	register_taxonomy_for_object_type( 'category', 'custom_type' );
+	/* this adds your post tags to your custom post type */
+	register_taxonomy_for_object_type( 'post_tag', 'custom_type' );
 	
-	/*
-		looking for custom meta boxes?
-		check out this fantastic tool:
-		https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
-	*/
+}
+
+// adding the function to the Wordpress init
+//add_action( 'init', 'custom_post_example');
+
+
+function property_movein_cpt() { 
+	// creating (registering) the custom type 
+	register_post_type( 'property_movein', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+		// let's now add all the options for this post type
+		array( 
+			'labels' => array(
+				'name' => __( 'Move-ins' ), /* This is the Title of the Group */
+				'singular_name' => __( 'Move-in Property' ), /* This is the individual type */
+				'all_items' => __( 'All Move-in Properties' ), /* the all items menu item */
+				'add_new' => __( 'Add New' ), /* The add new menu item */
+				'add_new_item' => __( 'Add New Move-In Property' ), /* Add New Display Title */
+				'edit' => __( 'Edit' ), /* Edit Dialog */
+				'edit_item' => __( 'Edit Move-in Properties' ), /* Edit Display Title */
+				'new_item' => __( 'New Move-in Property' ), /* New Display Title */
+				'view_item' => __( 'View Move-in Property' ), /* View Display Title */
+				'search_items' => __( 'Search Move-in Property' ), /* Search Custom Type Title */ 
+				'not_found' =>  __( 'Nothing found in the Database.' ), /* This displays if there are no entries yet */ 
+				'not_found_in_trash' => __( 'Nothing found in Trash' ), /* This displays if there is nothing in the trash */
+				'parent_item_colon' => ''
+			), /* end of arrays */
+			'description' => __( 'This is the example move-in property' ), /* Custom Type Description */
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 50, /* this is what order you want it to appear in on the left hand side menu */ 
+			'menu_icon' => get_img_directory() . '/dashboard-fa-suitcase.png', /* the icon for the custom post type menu */
+			'rewrite'	=> array( 'slug' => 'property_movein', 'with_front' => false, 'feed' => true ), /* you can specify its url slug */
+			'has_archive' => false, //'custom_type', /* you can rename the slug here */
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			/* the next one is important, it tells what's enabled in the post editor */
+			'supports' => array( 'title', 'editor', 'thumbnail' )
+		) /* end of options */
+	); /* end of register post type */
 	
 
-?>
+	// now let's add custom categories (these act like categories)
+	register_taxonomy( 'property_movein_cat', 
+		array('property_movein'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array('hierarchical' => true,     /* if this is true, it acts like categories */
+			'labels' => array(
+				'name' => __( 'Move-in Categories' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Move-in Category' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Move-in Categories' ), /* search title for taxomony */
+				'all_items' => __( 'All Move-in Categories' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Move-in Category' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Move-in Category:' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Move-in Category' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Move-in Category' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Move-in Category' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Move-in Category Name' ) /* name title for taxonomy */
+			),
+			'show_admin_column' => true, 
+			'show_ui' => true,
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'movein' ),
+		)
+	);
+
+	/* this adds your post categories to your custom post type */
+	register_taxonomy_for_object_type( 'property_movein_cat', 'property_movein' );
+
+
+	acf_add_local_field_group(array(
+		'key' => 'group_5c358c8a428be',
+		'title' => 'Move-in Pages',
+		'fields' => array(
+			array(
+				'key' => 'field_5c358c9f52b40',
+				'label' => 'Page Category',
+				'name' => 'page_category',
+				'type' => 'taxonomy',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => 'property_movein_cat',
+				'field_type' => 'select',
+				'allow_null' => 0,
+				'add_term' => 1,
+				'save_terms' => 0,
+				'load_terms' => 0,
+				'return_format' => 'object',
+				'multiple' => 0,
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'page_parent',
+					'operator' => '==',
+					'value' => '7',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
+	));
+
+	acf_add_local_field_group(array(
+		'key' => 'group_5c35878249238',
+		'title' => 'Move-in Property Info',
+		'fields' => array(
+			array(
+				'key' => 'field_5c35879e31438',
+				'label' => 'Location',
+				'name' => 'location',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3587bb31439',
+				'label' => 'Price',
+				'name' => 'price',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3587c53143a',
+				'label' => 'Type',
+				'name' => 'type',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3587ec3143b',
+				'label' => 'Status',
+				'name' => 'status',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3587f73143c',
+				'label' => 'Size',
+				'name' => 'size',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3588043143d',
+				'label' => 'Beds',
+				'name' => 'beds',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c35880e3143e',
+				'label' => 'Baths',
+				'name' => 'baths',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c3588123143f',
+				'label' => 'Garages',
+				'name' => 'garages',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c35882231440',
+				'label' => 'Gallery',
+				'name' => 'gallery',
+				'type' => 'gallery',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'min' => '',
+				'max' => '',
+				'insert' => 'append',
+				'library' => 'all',
+				'min_width' => '',
+				'min_height' => '',
+				'min_size' => '',
+				'max_width' => '',
+				'max_height' => '',
+				'max_size' => '',
+				'mime_types' => '',
+			),
+			array(
+				'key' => 'field_5c35885231441',
+				'label' => 'Download Plan',
+				'name' => 'download_plan',
+				'type' => 'file',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'return_format' => 'url',
+				'library' => 'all',
+				'min_size' => '',
+				'max_size' => '',
+				'mime_types' => '',
+			),
+			array(
+				'key' => 'field_5c35888931442',
+				'label' => 'Buy Now Link',
+				'name' => 'buy_now_link',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+			),
+			array(
+				'key' => 'field_5c3588b131443',
+				'label' => 'Calculate Mortgage Link',
+				'name' => 'calculate_mortgage_link',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+			),
+			array(
+				'key' => 'field_5c3588c231444',
+				'label' => 'Tali to Agent Link',
+				'name' => 'tali_to_agent_link',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+			),
+			array(
+				'key' => 'field_5c3588e331445',
+				'label' => 'Schedule Visit Link',
+				'name' => 'schedule_visit_link',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'property_movein',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
+	));
+
+	
+}
+add_action( 'init', 'property_movein_cpt');
+
+
+
+
+/*
+	looking for custom meta boxes?
+	check out this fantastic tool:
+	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
+*/
+
+

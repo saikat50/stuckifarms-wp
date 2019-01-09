@@ -27,7 +27,7 @@ function tcf_init() {
   // launching operation cleanup
   add_action( 'init', 'tcf_head_cleanup' );
   // A better title
-  add_filter( 'wp_title', 'rw_title', 10, 3 );
+  //add_filter( 'wp_title', 'rw_title', 10, 3 );
   // remove WP version from RSS
   add_filter( 'the_generator', 'tcf_rss_version' );
   // remove pesky injected css for recent comments widget
@@ -372,5 +372,6 @@ function load_include($file, $args = []){
 
     include(  locate_template( $filename ) ); 
 }
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

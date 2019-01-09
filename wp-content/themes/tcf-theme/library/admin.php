@@ -88,7 +88,23 @@ function tcf_custom_admin_footer() {
 	_e( '<span id="footer-thankyou">Developed by <a href="" target="_blank"></a></span>.');
 }
 
+
+// function fontawesome_dashboard() {
+// 	wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/css/fontawesome.min.css', array(), '', 'all' );
+// 	wp_enqueue_style( 'fontawesome' ); 
+// }
+
+// add_action('admin_init', 'fontawesome_dashboard');
+
+function dashboard_custom_style() {
+   echo "<style type='text/css' media='screen'>
+   	#adminmenu .wp-menu-image img {
+		height: 20px;	   
+	}
+    </style>";
+ }
+add_action('admin_head', 'dashboard_custom_style');
+
 // adding it to the admin area
 //add_filter( 'admin_footer_text', 'tcf_custom_admin_footer' );
 
-?>
