@@ -28,6 +28,8 @@ if(have_posts()){
 		echo "</div>";
 
 		load_include('property-info', ['property' => $post]);
+
+		load_include('agent-info');
 	}
 }else{
 	?>
