@@ -135,7 +135,7 @@ function tcf_scripts_and_styles() {
 
 		//Jquery
 		wp_deregister_script('jquery');
-	    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.3.1.min.js', false, null, true);
+	    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.3.1.min.js', false, null, false);
 	    wp_enqueue_script('jquery');
 
 		//FONT AWESOME 
@@ -180,7 +180,14 @@ function tcf_scripts_and_styles() {
 
 
 	}
+
+	
 }
+
+function insert_jquery(){
+	wp_enqueue_script('jquery', false, array(), false, false);
+}
+add_filter('wp_enqueue_scripts','insert_jquery',1);
 
 /*********************
 THEME SUPPORT

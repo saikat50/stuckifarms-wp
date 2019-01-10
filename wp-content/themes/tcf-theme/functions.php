@@ -69,6 +69,8 @@ if ( ! isset( $content_width ) ) {
 // Thumbnail sizes
 add_image_size( 'tcf-thumb-600', 600, 150, true );
 add_image_size( 'tcf-thumb-300', 300, 100, true );
+add_image_size( 'tcf-property-slide', 1200, 500, true );
+add_image_size( 'tcf-property-slide-thumb', 200, intval(500/6), true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -347,8 +349,14 @@ function template_scripts_and_styles(){
 	wp_enqueue_style( 'style' );
 	
 	//scripts
-	wp_register_script( 'main', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'bootstrap' ), '', true );
+	wp_register_script( 'main', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main' );
+
+    //lightslider
+    wp_register_style( 'lightslider', get_stylesheet_directory_uri() . '/assets/lightslider/css/lightslider.min.css', array(), '', 'all' );
+    wp_enqueue_style('lightslider');
+    wp_register_script( 'lightslider', get_stylesheet_directory_uri() . '/assets/lightslider/js/lightslider.min.js', array( 'jquery' ), '', true );
+    wp_enqueue_script('lightslider');
 }
 
 

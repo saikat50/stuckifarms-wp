@@ -252,7 +252,10 @@
 }
 
 @media (min-width: 992px) {
-  .card-deck .card {
+  .card-deck.columns-4 .card {
     flex: 0 0 calc(25% - 30px);
+  }
+  .card-deck.columns-3 .card {
+    flex: 0 0 calc(33% - 30px);
   }
 }

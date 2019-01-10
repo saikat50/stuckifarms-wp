@@ -17,7 +17,7 @@ URL: http://themble.com/bones/
 // Flush rewrite rules for custom post types
 add_action( 'after_switch_theme', 'bones_flush_rewrite_rules' );
 
-//flush_rewrite_rules();
+// flush_rewrite_rules();
 
 // Flush your rewrite rules
 function bones_flush_rewrite_rules() {
@@ -119,27 +119,27 @@ function custom_post_example() {
 //add_action( 'init', 'custom_post_example');
 
 
-function property_movein_cpt() { 
+function property_cpt() { 
 	// creating (registering) the custom type 
-	register_post_type( 'property_movein', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+	register_post_type( 'property', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 
 			'labels' => array(
-				'name' => __( 'Move-ins' ), /* This is the Title of the Group */
-				'singular_name' => __( 'Move-in Property' ), /* This is the individual type */
-				'all_items' => __( 'All Move-in Properties' ), /* the all items menu item */
+				'name' => __( 'Properties' ), /* This is the Title of the Group */
+				'singular_name' => __( 'Property' ), /* This is the individual type */
+				'all_items' => __( 'All Properties' ), /* the all items menu item */
 				'add_new' => __( 'Add New' ), /* The add new menu item */
-				'add_new_item' => __( 'Add New Move-In Property' ), /* Add New Display Title */
+				'add_new_item' => __( 'Add New Property' ), /* Add New Display Title */
 				'edit' => __( 'Edit' ), /* Edit Dialog */
-				'edit_item' => __( 'Edit Move-in Properties' ), /* Edit Display Title */
-				'new_item' => __( 'New Move-in Property' ), /* New Display Title */
-				'view_item' => __( 'View Move-in Property' ), /* View Display Title */
-				'search_items' => __( 'Search Move-in Property' ), /* Search Custom Type Title */ 
+				'edit_item' => __( 'Edit Properties' ), /* Edit Display Title */
+				'new_item' => __( 'New Property' ), /* New Display Title */
+				'view_item' => __( 'View Property' ), /* View Display Title */
+				'search_items' => __( 'Search Property' ), /* Search Custom Type Title */ 
 				'not_found' =>  __( 'Nothing found in the Database.' ), /* This displays if there are no entries yet */ 
 				'not_found_in_trash' => __( 'Nothing found in Trash' ), /* This displays if there is nothing in the trash */
 				'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example move-in property' ), /* Custom Type Description */
+			'description' => __( 'This is the example property' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => true,
@@ -147,7 +147,7 @@ function property_movein_cpt() {
 			'query_var' => true,
 			'menu_position' => 50, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => get_img_directory() . '/dashboard-fa-suitcase.png', /* the icon for the custom post type menu */
-			'rewrite'	=> array( 'slug' => 'property_movein', 'with_front' => false, 'feed' => true ), /* you can specify its url slug */
+			'rewrite'	=> array( 'slug' => 'property', 'with_front' => false, 'feed' => true ), /* you can specify its url slug */
 			'has_archive' => false, //'custom_type', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
@@ -158,35 +158,35 @@ function property_movein_cpt() {
 	
 
 	// now let's add custom categories (these act like categories)
-	register_taxonomy( 'property_movein_cat', 
-		array('property_movein'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	register_taxonomy( 'property_cat', 
+		array('property'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
-				'name' => __( 'Move-in Categories' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Move-in Category' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Move-in Categories' ), /* search title for taxomony */
-				'all_items' => __( 'All Move-in Categories' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Move-in Category' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Move-in Category:' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Move-in Category' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Move-in Category' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Move-in Category' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Move-in Category Name' ) /* name title for taxonomy */
+				'name' => __( 'Categories' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Category' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Categories' ), /* search title for taxomony */
+				'all_items' => __( 'All Categories' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Category' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Category:' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Category' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Category' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Category' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Category Name' ) /* name title for taxonomy */
 			),
 			'show_admin_column' => true, 
 			'show_ui' => true,
 			'query_var' => true,
-			'rewrite' => array( 'slug' => 'movein' ),
+			//'rewrite' => array( 'slug' => 'properties' ),
 		)
 	);
 
 	/* this adds your post categories to your custom post type */
-	register_taxonomy_for_object_type( 'property_movein_cat', 'property_movein' );
+	register_taxonomy_for_object_type( 'property_cat', 'property' );
 
 
 	acf_add_local_field_group(array(
 		'key' => 'group_5c358c8a428be',
-		'title' => 'Move-in Pages',
+		'title' => 'Property Pages',
 		'fields' => array(
 			array(
 				'key' => 'field_5c358c9f52b40',
@@ -201,7 +201,7 @@ function property_movein_cpt() {
 					'class' => '',
 					'id' => '',
 				),
-				'taxonomy' => 'property_movein_cat',
+				'taxonomy' => 'property_cat',
 				'field_type' => 'select',
 				'allow_null' => 0,
 				'add_term' => 1,
@@ -232,8 +232,35 @@ function property_movein_cpt() {
 
 	acf_add_local_field_group(array(
 		'key' => 'group_5c35878249238',
-		'title' => 'Move-in Property Info',
+		'title' => 'Property Info',
 		'fields' => array(
+			array(
+				'key' => 'field_5c36c8eb40c4c',
+				'label' => 'Property Type (internal)',
+				'name' => 'property_type',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'movein' => 'Move In',
+					'lot' => 'Lot',
+					'plan' => 'Plan',
+				),
+				'default_value' => array(
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+				'ui' => 0,
+				'return_format' => 'value',
+				'ajax' => 0,
+				'placeholder' => '',
+			),
 			array(
 				'key' => 'field_5c35879e31438',
 				'label' => 'Location',
@@ -387,6 +414,107 @@ function property_movein_cpt() {
 				'maxlength' => '',
 			),
 			array(
+				'key' => 'field_5c35885231441',
+				'label' => 'Download Plan',
+				'name' => 'download_plan',
+				'type' => 'file',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'return_format' => 'url',
+				'library' => 'all',
+				'min_size' => '',
+				'max_size' => '',
+				'mime_types' => '',
+			),
+			array(
+				'key' => 'field_5c36cf7051787',
+				'label' => 'Village',
+				'name' => 'village',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5c36cf9251788',
+				'label' => 'Plan',
+				'name' => 'plan',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_5c36c8eb40c4c',
+							'operator' => '==',
+							'value' => 'plan',
+						),
+					),
+				),
+			),
+			array(
+				'key' => 'field_5c36ce696f80f',
+				'label' => 'Lot Size',
+				'name' => 'lot_size',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_5c36c8eb40c4c',
+							'operator' => '==',
+							'value' => 'lot',
+						),
+					),
+					array(
+						array(
+							'field' => 'field_5c36c8eb40c4c',
+							'operator' => '==',
+							'value' => 'plan',
+						),
+					),
+				),
+			),
+			array(
 				'key' => 'field_5c35882231440',
 				'label' => 'Gallery',
 				'name' => 'gallery',
@@ -410,26 +538,18 @@ function property_movein_cpt() {
 				'max_height' => '',
 				'max_size' => '',
 				'mime_types' => '',
-			),
-			array(
-				'key' => 'field_5c35885231441',
-				'label' => 'Download Plan',
-				'name' => 'download_plan',
-				'type' => 'file',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_5c36c8eb40c4c',
+							'operator' => '==',
+							'value' => 'movein',
+						),
+					),
 				),
-				'return_format' => 'url',
-				'library' => 'all',
-				'min_size' => '',
-				'max_size' => '',
-				'mime_types' => '',
 			),
+			
+			/*
 			array(
 				'key' => 'field_5c35888931442',
 				'label' => 'Buy Now Link',
@@ -464,8 +584,8 @@ function property_movein_cpt() {
 			),
 			array(
 				'key' => 'field_5c3588c231444',
-				'label' => 'Tali to Agent Link',
-				'name' => 'tali_to_agent_link',
+				'label' => 'Talk to Agent Link',
+				'name' => 'talk_to_agent_link',
 				'type' => 'url',
 				'instructions' => '',
 				'required' => 0,
@@ -494,13 +614,15 @@ function property_movein_cpt() {
 				'default_value' => '',
 				'placeholder' => '',
 			),
+			*/
 		),
+
 		'location' => array(
 			array(
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'property_movein',
+					'value' => 'property',
 				),
 			),
 		),
@@ -516,9 +638,73 @@ function property_movein_cpt() {
 
 	
 }
-add_action( 'init', 'property_movein_cpt');
+add_action( 'init', 'property_cpt');
 
-
+/*
+acf_add_local_field_group(array(
+	'key' => 'group_5c36c8e3e2bba',
+	'title' => 'Test Fields',
+	'fields' => array(
+		
+		array(
+			'key' => 'field_5c36c97640c4d',
+			'label' => 'Other Field',
+			'name' => 'other_field',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c36c8eb40c4c',
+						'operator' => '==',
+						'value' => 'lot',
+					),
+					array(
+						'field' => 'field_5c36c8eb40c4c',
+						'operator' => '==',
+						'value' => 'movein',
+					),
+				),
+				array(
+					array(
+						'field' => 'field_5c36c8eb40c4c',
+						'operator' => '==',
+						'value' => 'plan',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+*/
 
 
 /*

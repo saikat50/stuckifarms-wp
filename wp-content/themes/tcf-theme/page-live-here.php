@@ -35,12 +35,12 @@ if (have_posts()){
 
 		page_title_block('Live at Stucki Farms');
 
-		load_include('breadcrumbs-movein', [
+		load_include('breadcrumbs-property', [
 			'activePage' => $activePage,
 			'liveHerePages' => $liveHerePages,
 		]);
 
-		load_include('archive-movein', ['page' => $activePage]);
+		load_include('archive-property', ['page' => $activePage]);
 	}
 }
 
