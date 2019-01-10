@@ -41,8 +41,13 @@ $fields = array_filter($fields, function($field){
                 </p>
                 <br>
                 <div class="row">
+                    <?php 
+                    $download = get_field('download_plan', $property->ID);
+                    ?>
                     <div class="col-lg-4 mb-4">
-                        <a href="" class="btn btn-arrow">Download Plan</a>
+                        <?php if($download){ ?>
+                            <a href="<?php echo $download; ?>" class="btn btn-arrow">Download Plan</a>
+                        <?php } ?>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <a href="" class="btn btn-arrow">Calculate Mortgage</a>
