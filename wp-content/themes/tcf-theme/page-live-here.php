@@ -11,36 +11,23 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
-$live_here_page_id = 7;
 
 // $terms = get_terms(array(
 //     'taxonomy' => 'property_movein_cat',
 //     'hide_empty' => false,
 // ));
 
-$liveHerePages = get_pages([
-	'parent' => $live_here_page_id,
-]);
+
 
 if (have_posts()){
 	while (have_posts()){
 		the_post();
-		$activePage = reset($liveHerePages);
-		foreach($liveHerePages as $page){
-			if($page->ID == get_the_ID()){
-				$activePage = $page;
-				break;
-			}
-		}
 
 		page_title_block('Live at Stucki Farms');
 
-		load_include('breadcrumbs-property', [
-			'activePage' => $activePage,
-			'liveHerePages' => $liveHerePages,
-		]);
+		$args = load_include('property-breadcrumb', ['page' => $post]);
 
-		load_include('archive-property', ['page' => $activePage]);
+		load_include('archive-property', ['page' => $args['activePage']]);
 	}
 }
 

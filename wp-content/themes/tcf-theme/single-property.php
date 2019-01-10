@@ -17,19 +17,12 @@
 if(have_posts()){
 	while(have_posts()){
 		the_post(); 
+		
+		page_title_block('Live at Stucki Farms');		
 
-		echo "<div class='section'>";
-			echo "<div class='container'>";
-				echo "<h1 class='heading-alt'>". get_the_title() ."</h1>";
-			echo "</div>";
+		load_include('property-breadcrumb', ['page' => false, 'property' => $post]);
 
-			load_include('property-slider', ['property' => $post]);
-
-		echo "</div>";
-
-		load_include('property-info', ['property' => $post]);
-
-		load_include('agent-info');
+		load_include('property-single', ['property'=> $post]);
 	}
 }else{
 	?>

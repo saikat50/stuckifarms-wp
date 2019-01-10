@@ -71,6 +71,7 @@ add_image_size( 'tcf-thumb-600', 600, 150, true );
 add_image_size( 'tcf-thumb-300', 300, 100, true );
 add_image_size( 'tcf-property-slide', 1200, 500, true );
 add_image_size( 'tcf-property-slide-thumb', 200, intval(500/6), true );
+add_image_size( 'tcf-property-portrait', 500, 700, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -377,8 +378,8 @@ function load_include($file, $args = []){
     $filename = 'includes/' . $file . '.php';
     extract($args);
     global $post;   
-
-    include(  locate_template( $filename ) ); 
+    
+    return include(  locate_template( $filename ) ); 
 }
 
 
