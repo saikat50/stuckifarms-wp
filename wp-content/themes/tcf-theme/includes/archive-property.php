@@ -24,19 +24,11 @@
         ]);
 
         if ( $the_query->have_posts() ) {
-            $count = 0;
             echo "<div class='card-deck columns-3'>";
             while ( $the_query->have_posts() ) {
                 $the_query->the_post();
                 
-                // echo "<div class='col-lg-4'>";
-                    load_include('property-thumb', ['property' => $post]);
-                // echo "</div>";
-
-                // $count++;
-                // if( strpos($count/$posts_per_row, '.') === false){
-                //     echo "<div class='w-100 mb-4'></div>";
-                // }
+                load_include('property-thumb', ['property' => $post]);
             }
             echo "</div>";
 

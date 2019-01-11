@@ -1,4 +1,4 @@
-<section class="section section-sm">
+<section class="section section">
     <div class="container">
         <h4 class="subheading bottom-bar bottom-bar-blue">Agent Information</h4>
 

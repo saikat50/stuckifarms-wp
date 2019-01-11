@@ -16,3 +16,5 @@ echo "<section class='section-sm'>";
 echo "</section>";
 
 load_include('agent-info');
+
+load_include('property-related', ['property' => $property]);
