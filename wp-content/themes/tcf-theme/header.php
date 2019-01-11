@@ -15,11 +15,13 @@
 			<div class="container">
 				<div class="d-flex">
 					<ul class="navbar-nav flex-row ml-md-auto">
+						<?php if($facebook = get_field('facebook', 'option')){ ?>
 						<li class="nav-item">
-							<a class="nav-link link-white p-2" href="#" target="_blank">
+							<a class="nav-link link-white p-2" href="<?php echo $facebook; ?>" target="_blank">
 								<i class="far fa-share-alt"></i> Share
 							</a>
 						</li>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>

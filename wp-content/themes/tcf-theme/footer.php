@@ -64,27 +64,41 @@
 							All Rights Reserved 2018 Stucki Farms Inc.
 						</div>
 						<div class="ml-auto">
+							<?php 
+							$facebook = get_field('facebook', 'option');
+							$twitter = get_field('twitter', 'option');
+							$instagram = get_field('instagram', 'option');
+							$youtube = get_field('youtube', 'option');
+							?>
 							<ul class="list-inline">
+								<?php if($facebook){ ?>
 								<li>
-									<a class="link-white" href="">
+									<a class="link-white" href="<?php echo $facebook; ?>">
 										<i class="fab fa-fw fa-facebook"></i>
 									</a>
 								</li>
+								<?php } ?>
+								<?php if($twitter){ ?>
 								<li>
-									<a class="link-white" href="">
+									<a class="link-white" href="<?php echo $twitter; ?>">
 										<i class="fab fa-fw fa-twitter"></i>
 									</a>
 								</li>
+								<?php } ?>
+								<?php if($instagram){ ?>
 								<li>
-									<a class="link-white" href="">
+									<a class="link-white" href="<?php echo $instagram; ?>">
 										<i class="fab fa-fw fa-instagram"></i>
 									</a>
 								</li>
+								<?php } ?>
+								<?php if($youtube){ ?>
 								<li>
-									<a class="link-white" href="">
-										<i class="fab fa-fw fa-skype"></i>
+									<a class="link-white" href="<?php echo $youtube; ?>">
+										<i class="fab fa-fw fa-youtube"></i>
 									</a>
 								</li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>

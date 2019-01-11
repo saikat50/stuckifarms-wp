@@ -390,6 +390,7 @@ if( function_exists('acf_add_local_field_group') ){
 				'default_value' => '',
 				'placeholder' => '',
 			),
+			/*
 			array (
 				'key' => 'field_5599d2bea3eb3',
 				'label' => 'Google Plus',
@@ -406,10 +407,11 @@ if( function_exists('acf_add_local_field_group') ){
 				'default_value' => '',
 				'placeholder' => '',
 			),
+			*/
 			array (
 				'key' => 'field_5599d2c8a3eb4',
-				'label' => 'Linkedin',
-				'name' => 'linkedin',
+				'label' => 'Instagram',
+				'name' => 'instagram',
 				'type' => 'url',
 				'instructions' => '',
 				'required' => 0,
