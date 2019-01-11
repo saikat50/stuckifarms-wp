@@ -330,6 +330,18 @@ function tcf_end_comments( $comment, $args, $depth ) {
 } // don't remove this bracket!
 
 
+add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 );
+ 
+function custom_shortcode_atts_wpcf7_filter( $out, $pairs, $atts ) {
+    $my_attr = 'form_source';
+ 
+    if ( isset( $atts[$my_attr] ) ) {
+        $out[$my_attr] = $atts[$my_attr];
+    }
+ 
+    return $out;
+}
+
 /*
 This is a modification of a function found in the
 twentythirteen theme where we can declare some
