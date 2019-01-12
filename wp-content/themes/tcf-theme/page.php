@@ -1,33 +1,15 @@
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php page_title_block(get_the_title()); ?>
 
-
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<?php breadcrumbs(); ?>
+	<section class="section" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<?php the_content(); ?>
+				</div>
 			</div>
+			
 		</div>
-		<div class="row">
-			<div class="col-md-9">
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	</section>
 
-              	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-                  	<h1><?php the_title(); ?></h1>
-
-                  	<?php the_content(); ?>
-
-					<?php comments_template(); ?>
-
-	            </div>
-
-
-				<?php endwhile; endif; ?>
-
-			</div>
-
-			<?php get_sidebar(); ?>
-
-		</div>
-	</div>
-</section>
+<?php endwhile; endif; ?>
