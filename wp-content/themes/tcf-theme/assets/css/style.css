@@ -104,6 +104,10 @@ Site Typography
 	font-weight: normal;
 	color: #000;
 }
+.ns-heading {
+	font-family: 'proxima-nova';
+	color: #222;
+}
 
 /**************
 Site Style

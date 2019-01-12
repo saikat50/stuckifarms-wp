@@ -11,9 +11,12 @@
 <section class="section section">
     <div class="container">
         <?php 
-        foreach($titles as $key => $title){
-            echo '<h4 data-origin="'. $key .'" class="subheading bottom-bar bottom-bar-blue '. ($key == $origin ? '' : 'hidden') .'">'. $title .'</h4>';
+        if(empty($hide_title)){
+            foreach($titles as $key => $title){
+                echo '<h4 data-origin="'. $key .'" class="subheading bottom-bar bottom-bar-blue '. ($key == $origin ? '' : 'hidden') .'">'. $title .'</h4>';
+            }
         }
+        
         ?>
         
         <div class="row">
