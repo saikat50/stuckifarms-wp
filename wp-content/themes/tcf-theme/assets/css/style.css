@@ -372,3 +372,9 @@ footer .list-inline li a {
 	display: inline-block;
 	margin-bottom: 15px;
 }
+.post-comments {
+	font-size: 0.9rem;
+}
+.post-comments .far:not(:first-child) {
+	padding-left: 15px;
+}
