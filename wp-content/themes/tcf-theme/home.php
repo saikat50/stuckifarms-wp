@@ -13,7 +13,7 @@ page_title_block(get_the_title( $blogPage->ID ));
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<div class="row mb-5">
 								<div class="col-lg-5">
-									<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="img-fluid">
+									<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'blog-thumb'); ?>" alt="<?php the_title(); ?>" class="img-fluid">
 								</div>
 								<div class="col-lg-7">
 									<h3 class="h2" ><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
@@ -26,15 +26,16 @@ page_title_block(get_the_title( $blogPage->ID ));
 											'<span class="commentsCount">'. get_comments_number('0', '1', '') .'</span>'
 										); ?>
 									</p>
-									<div class="blog-content">
+									<div class="blog-content mb-4">
 									<?php 
 									$content = strip_tags(get_the_content());
-									if(strlen($content) > 55){
-										$content = substr($content, 0, 55) . ' ... ';
+									if(strlen($content) > 150){
+										$content = substr($content, 0, 150) . ' ... ';
 									}
 									echo $content;
 									?>
 									</div>
+									<a href="<?php the_permalink(); ?>" class="btn btn-theme btn-rounded">Read More</a>
 								</div>
 							</div>
 						</div>

@@ -72,6 +72,7 @@ add_image_size( 'tcf-thumb-300', 300, 100, true );
 add_image_size( 'tcf-property-slide', 1200, 500, true );
 add_image_size( 'tcf-property-slide-thumb', 200, intval(500/6), true );
 add_image_size( 'tcf-property-portrait', 500, 700, true );
+add_image_size( 'blog-thumb', 400, 300, true );
 
 /*
 to add more sizes, simply copy a line from above
