@@ -295,41 +295,45 @@ function breadcrumbs()
 /************* COMMENT LAYOUT *********************/
 
 // Comment Layout
-function tcf_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
-  <div id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
-      <div class="media-left">
-        <?php
-        /*
-          this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-          echo get_avatar($comment,$size='32',$default='<path_to_url>' );
-        */
-        ?>
-        <?php echo get_avatar($comment,40); ?>
+function tcf_comments($comments, $args, $depth ) {
+    foreach($comments as $comment){
+        $GLOBALS['comment'] = $comment;
+    ?>
+    <div id="comment-<?php comment_ID(); ?>"  class="media <?php comment_class('media'); ?>">
+        <img class="mr-3" src="<?php echo get_avatar_url($comment,40); ?>" alt="Author Profile Image">
+        <div class="media-body">
+            <h5 class="mt-0">
+                <?php printf(__( '<cite class="fn">%1$s</cite> %2$s'), get_comment_author_link(), edit_comment_link(__( '(Edit)'),'  ','') ) ?>
+            </h5>
+            <div class='comment-info'>
+                <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y')); ?> </a></time>
+            </div>
+            <div class="comment-text">
+                <?php echo $comment->comment_content; ?>
+            </div>
+            <div>
+                <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            </div>
+        </div>
+    </div>
 
-      </div>
-      <div class="media-body">
-	      <?php if ($comment->comment_approved == '0') : ?>
-	        <div class="alert alert-info">
-	          <p><?php _e( 'Your comment is awaiting moderation.') ?></p>
-	        </div>
-	      <?php endif; ?>
-	      <div class="comment_content">
-	        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s'), get_comment_author_link(), edit_comment_link(__( '(Edit)'),'  ','') ) ?>
-	        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y')); ?> </a></time>
-	        <?php comment_text() ?>
-	      </div>
-		  <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-  <?php // </li> is added by WordPress automatically ?>
+    <?php
+    }
+   ?>
 <?php
 } // don't remove this bracket!
 
-function tcf_end_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
-      </div></div>
-<?php
-} // don't remove this bracket!
-
+/*
+<div class="media mt-3">
+                <a class="pr-3" href="#">
+                    <img src="..." alt="Generic placeholder image">
+                </a>
+                <div class="media-body">
+                    <h5 class="mt-0">Media heading</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            */
 
 add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 );
  
