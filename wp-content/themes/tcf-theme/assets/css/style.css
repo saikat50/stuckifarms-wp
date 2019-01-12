@@ -378,3 +378,11 @@ footer .list-inline li a {
 .post-comments .far:not(:first-child) {
 	padding-left: 15px;
 }
+
+.contact-info-boxes > div {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+.contact-info-boxes > div:not(:last-child){
+	border-right: solid 1px #bcbcbc;
+}
