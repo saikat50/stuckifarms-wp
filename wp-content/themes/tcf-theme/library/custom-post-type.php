@@ -189,6 +189,25 @@ function property_cpt() {
 		'title' => 'Property Pages',
 		'fields' => array(
 			array(
+				'key' => 'field_5c3a212c565b7',
+				'label' => 'Page Subheading',
+				'name' => 'page_subheading',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
 				'key' => 'field_5c358c9f52b40',
 				'label' => 'Page Category',
 				'name' => 'page_category',

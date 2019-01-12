@@ -361,3 +361,14 @@ footer .list-inline li a {
 .bottom-bar-blue:after {
 	background: #09B9E5;
 }
+
+.big-text {
+	font-size: 1.3rem;
+}
+
+.property-buttons .btn {
+	width: 17%;
+	margin-right: 2%;
+	display: inline-block;
+	margin-bottom: 15px;
+}

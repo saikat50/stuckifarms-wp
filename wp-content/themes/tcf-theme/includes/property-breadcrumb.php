@@ -34,6 +34,8 @@ if(empty($page) && !empty($property) ) {
 
 $liveHerePages = get_pages([
     'parent' => $live_here_page_id,
+    'sort_column' => "menu_order",
+    'sort_order' => 'ASC',
 ]);
 
 $activePage = reset($liveHerePages);
