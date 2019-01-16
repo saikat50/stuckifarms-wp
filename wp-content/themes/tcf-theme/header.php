@@ -29,7 +29,7 @@
 		<div class="main-menu">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg">
-					<a class="navbar-brand" href="/">
+					<a class="navbar-brand" href="<?php echo site_url(); ?>">
 						<img src="<?php echo the_field('logo', 'option'); ?>" alt="Planstin" class="img-fluid">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
