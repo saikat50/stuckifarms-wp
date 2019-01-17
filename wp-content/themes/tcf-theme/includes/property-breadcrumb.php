@@ -1,5 +1,4 @@
 <?php 
-$live_here_page_id = 7;
 
 if(empty($page) && !empty($property) ) {
     $terms = get_terms([
@@ -33,7 +32,7 @@ if(empty($page) && !empty($property) ) {
 }	
 
 $liveHerePages = get_pages([
-    'parent' => $live_here_page_id,
+    'parent' => get_page_by_path('live-here')->ID,
     'sort_column' => "menu_order",
     'sort_order' => 'ASC',
 ]);
@@ -46,9 +45,9 @@ foreach($liveHerePages as $p){
     }
 }
 
-load_include('breadcrumbs-property', [
-    'activePage' => $activePage,
-    'liveHerePages' => $liveHerePages,
+load_include('breadcrumbs-pages', [
+    'active' => $activePage,
+    'pages' => $liveHerePages,
 ]);
 
 return ['activePage' => $activePage, 'liveHerepages' => $liveHerePages];

@@ -30,7 +30,3 @@ if (have_posts()){
 		load_include('archive-property', ['page' => $args['activePage']]);
 	}
 }
-
-?>
-
-

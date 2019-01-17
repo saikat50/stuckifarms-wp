@@ -399,5 +399,18 @@ function load_include($file, $args = []){
     return include(  locate_template( $filename ) ); 
 }
 
+function create_page($post){
+    $post = array_merge([
+        'post_title'    => '',
+        'post_content'  => '',
+        'post_status'   => 'publish',
+        'post_author'   => 1,
+        'post_type'     => 'page',
+        //'post_parent' => 111,
+    ], $post);
+
+    $inserted = wp_insert_post($post);
+}
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
