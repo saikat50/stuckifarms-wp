@@ -39,18 +39,13 @@ if ( empty($posts) ) {
     <div class="container">
         <h4 class="subheading bottom-bar bottom-bar-blue">Related Properties</h4>
 
-        <div class="row">
-            <?php 
-       
-            echo "<div class='card-deck columns-3'>";
-            foreach ( $posts as $post ) {                
-                load_include('property-thumb', ['property' => $post]);
-            }
-            echo "</div>";
-
-           
-            ?>
-        </div>
+        <?php
+        echo "<div class='card-deck columns-3'>";
+        foreach ( $posts as $post ) {                
+            load_include('property-thumb', ['property' => $post]);
+        }
+        echo "</div>";
+        ?>
 
     </div>
 </div>
