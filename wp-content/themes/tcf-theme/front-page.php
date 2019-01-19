@@ -1,7 +1,7 @@
 <section class="video-banner first-block">
 	<div class="bg bg-theme-transparent"></div>
 	<video autoplay muted loop id="myVideo" poster="<?php echo get_img_directory(); ?>/home-video-clip.jpg">
-		<source src="<?php echo get_img_directory(); ?>/home-video-clip.mp4" type="video/mp4">
+		<source src="<?php echo get_img_directory(); ?>/home-video-clip-short.mp4" type="video/mp4">
 	</video>
 </section>
 <section class="section bg-gray-light">
