@@ -567,13 +567,6 @@ function property_cpt() {
 							'value' => 'movein',
 						),
 					),
-					array(
-						array(
-							'field' => 'field_5c36c8eb40c4c',
-							'operator' => '==',
-							'value' => 'lot',
-						),
-					),
 				),
 			),
 			
