@@ -11,9 +11,9 @@ $(function(){
       enableDrag: false,
       currentPagerPosition:'left',
       onSliderLoad: function(el) {
-        el.lightGallery({
-            selector: '#imageGallery .lslide'
-        });
+        // el.lightGallery({
+        //     selector: '#imageGallery .lslide'
+        // });
       }   
     }); 
   }

@@ -187,10 +187,10 @@ header .navbar-toggler {
 	z-index: 0;
 }
 .video-banner video {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
-	width: 100%;
+	min-width: 100%;
 }
 
 
@@ -201,6 +201,14 @@ header .navbar-toggler {
 		right: 10px;
 		background: rgb(84, 27, 0);
 		padding: 15px;
+	}
+	.video-banner {
+		height: auto;
+	}
+	.video-banner video {
+		position: relative;
+		width: 100%;
+		display: block;
 	}
 }
 @media (min-width: 992px){
@@ -390,3 +398,122 @@ footer .list-inline li a {
 .contact-info-boxes > div:not(:last-child){
 	border-right: solid 1px #bcbcbc;
 }
+
+
+
+/*page custom homes*/
+
+.mgrt-40{
+    margin-top: 40px;
+}
+
+.custom-home-p{
+    font-size: 28px;
+    color: #707070;
+}
+
+.btn-arrow{
+    width: 190px;
+      height: 40px;
+      position: relative;
+      background: #c6c6c6;
+     border-radius: 0;
+    color: #565656;
+    font-family: 'Arial';
+    font-size: 13px;
+    text-align: left;
+    padding-top: 10px;
+	transition: all linear 0.15s;
+}
+.btn-arrow:hover::before{
+    border-left: 20px solid #31661E;
+}
+.btn-arrow:hover{
+    color: #fff;
+    background: #31661E;
+}
+
+
+.btn-arrow:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	transition: all linear 0.15s;
+}
+.btn-arrow:before {
+	content: "";
+	position: absolute;
+	right: -21px;
+	bottom: -1px;
+	width: 0;
+	height: 0;
+	border-left: 20px solid #c6c6c6;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	transition: all linear 0.15s;
+}
+
+
+
+@media(max-width: 1200px){
+    .property-buttons .btn {
+   width: 18%;
+    margin-right: 4%;
+    display: inline-block;
+    margin-bottom: 15px;
+        font-size: 12px;
+    }
+    
+}
+
+
+@media(max-width: 991px){
+    
+    .property-buttons .btn {
+    width: 25%;
+    margin-right: 7%;
+    display: inline-block;
+    margin-bottom: 15px;
+        font-size: 12px;
+    }
+    .custom-home-p {
+    font-size: 22px;
+    color: #707070;
+    }
+    
+    
+}
+
+
+@media(max-width: 767px){
+    .m-mgrt-20{
+    margin-top: 20px;
+    }
+    .property-buttons .btn {
+    width: 42%;
+    margin-right: 7%;
+    display: inline-block;
+    margin-bottom: 15px;
+        font-size: 12px;
+    }
+    .custom-home-p {
+    font-size: 22px;
+    color: #707070;
+    }
+    .page-heading {
+    font-size: 28px;
+    }
+}
+
+@media(max-width: 416px){
+    .property-buttons .btn{
+        font-size: 12px;
+        padding-left: 5px;
+    }
+}
+
