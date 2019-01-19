@@ -73,28 +73,28 @@
 							<ul class="list-inline">
 								<?php if($facebook){ ?>
 								<li>
-									<a class="link-white" href="<?php echo $facebook; ?>">
+									<a target="_blank" class="link-white" href="<?php echo $facebook; ?>">
 										<i class="fab fa-fw fa-facebook"></i>
 									</a>
 								</li>
 								<?php } ?>
 								<?php if($twitter){ ?>
 								<li>
-									<a class="link-white" href="<?php echo $twitter; ?>">
+									<a target="_blank" class="link-white" href="<?php echo $twitter; ?>">
 										<i class="fab fa-fw fa-twitter"></i>
 									</a>
 								</li>
 								<?php } ?>
 								<?php if($instagram){ ?>
 								<li>
-									<a class="link-white" href="<?php echo $instagram; ?>">
+									<a target="_blank" class="link-white" href="<?php echo $instagram; ?>">
 										<i class="fab fa-fw fa-instagram"></i>
 									</a>
 								</li>
 								<?php } ?>
 								<?php if($youtube){ ?>
 								<li>
-									<a class="link-white" href="<?php echo $youtube; ?>">
+									<a target="_blank" class="link-white" href="<?php echo $youtube; ?>">
 										<i class="fab fa-fw fa-youtube"></i>
 									</a>
 								</li>
