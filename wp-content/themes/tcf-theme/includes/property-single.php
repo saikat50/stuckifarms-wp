@@ -3,13 +3,13 @@ $property_type = get_field('property_type', $property->ID) ?: 'movein';
 
 $fields = [
     'movein' => [
-       'location', 'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages',
+       'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages',
     ],
     'plan' => [
-       'location', 'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages', 'lot_size',
+       'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages', 'lot_size',
     ],
     'lot' => [
-        'location', 'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages', 'lot_size',
+        'village', 'price', 'type', 'status',  'plan', 'size', 'beds', 'baths', 'garages', 'lot_size',
     ],
 ];
 

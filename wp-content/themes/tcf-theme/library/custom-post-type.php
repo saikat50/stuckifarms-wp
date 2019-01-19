@@ -280,6 +280,7 @@ function property_cpt() {
 				'ajax' => 0,
 				'placeholder' => '',
 			),
+			/*
 			array(
 				'key' => 'field_5c35879e31438',
 				'label' => 'Location',
@@ -299,6 +300,7 @@ function property_cpt() {
 				'append' => '',
 				'maxlength' => '',
 			),
+			*/
 			array(
 				'key' => 'field_5c3587bb31439',
 				'label' => 'Price',
