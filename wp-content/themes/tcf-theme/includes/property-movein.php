@@ -15,7 +15,7 @@ echo "<section class='section-sm'>";
     echo "</div>";
 echo "</section>";
 
-load_include('agent-info');
+//load_include('agent-info');
 
 load_include('property-request-form');
 
