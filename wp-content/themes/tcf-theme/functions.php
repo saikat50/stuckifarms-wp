@@ -413,7 +413,7 @@ function create_page($post){
 }
 
 function get_price_text($str){
-    if(is_numeric($str)){
+    if(is_numeric(str_replace(',', '', $str))){
         return '$' . number_format( floatval($str) ?: 0, 2, '.', ',');
     }
     return $str;
