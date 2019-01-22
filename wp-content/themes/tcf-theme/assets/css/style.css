@@ -120,6 +120,14 @@ body {
 header .nav-link:hover {
 	text-decoration: underline;
 }
+
+.main-menu-bg {
+	position: absolute;
+	height: 65px;
+	width: 100%;
+	top: 45px;
+}
+
 .topbar .navbar-nav {
 	position: relative;
 	z-index: 10;
@@ -193,15 +201,19 @@ header .navbar-toggler {
 	min-width: 100%;
 }
 
-
-@media(max-width: 991px){
-	.main-menu .navbar-collapse {
-		position: absolute;
-		top: 95px;
-		right: 10px;
-		background: rgb(84, 27, 0);
-		padding: 15px;
+@media(max-width: 1192px){
+	.main-menu {
+		background: #541B00;
 	}
+	.main-menu .container {
+		max-width: unset;
+	}
+	.main-menu .navbar-brand {
+		height: 50px;
+		margin-top: 40px;
+	}
+}
+@media(max-width: 991px){
 	.video-banner {
 		height: auto;
 	}
@@ -209,6 +221,10 @@ header .navbar-toggler {
 		position: relative;
 		width: 100%;
 		display: block;
+	}
+	
+	.main-menu .navbar-brand img {
+		height: 90px;
 	}
 }
 @media (min-width: 992px){
@@ -473,17 +489,19 @@ footer .list-inline li a {
 
 
 @media(max-width: 991px){
-    
+    .main-menu .navbar-nav {
+		padding-top: 25px;
+	}
     .property-buttons .btn {
-    width: 25%;
-    margin-right: 7%;
-    display: inline-block;
-    margin-bottom: 15px;
+		width: 25%;
+		margin-right: 7%;
+		display: inline-block;
+		margin-bottom: 15px;
         font-size: 12px;
     }
     .custom-home-p {
-    font-size: 22px;
-    color: #707070;
+		font-size: 22px;
+		color: #707070;
     }
     
     
