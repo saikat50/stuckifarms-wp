@@ -25,7 +25,7 @@ $fields = array_filter($fields, function($field){
 <div class="card property property-<?php echo $property_type; ?> mb-4">
     <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $property->ID, 'medium' ) ?>" alt="<?php echo get_the_title($property->ID); ?>">
     <div class="card-body">
-        <h2 class="heading-alt">$<?php echo number_format( floatval(get_field('price', $property->ID)) ?: 0, 2, '.', ','); ?></h2>
+        <h2 class="heading-alt"><?php echo get_price_text(get_field('price', $property->ID)); ?></h2>
         <h5 class="card-title"><?php echo get_the_title($property->ID); ?></h5>
         <p class="card-text">
             <?php 
@@ -47,6 +47,6 @@ $fields = array_filter($fields, function($field){
         ?>
     </div>
     <div class="card-footer">
-      <a href="<?php the_permalink($property->ID); ?>" class="btn btn-primary">Details</a>
+      <a href="<?php the_permalink($property->ID); ?>" class="btn btn-theme">Details</a>
     </div>
 </div>

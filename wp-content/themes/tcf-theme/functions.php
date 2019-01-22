@@ -412,5 +412,11 @@ function create_page($post){
     $inserted = wp_insert_post($post);
 }
 
+function get_price_text($str){
+    if(is_numeric($str)){
+        return '$' . number_format( floatval($str) ?: 0, 2, '.', ',');
+    }
+    return $str;
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
