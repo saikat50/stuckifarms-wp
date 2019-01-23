@@ -401,6 +401,9 @@ function page_title_block($title = '', $image = ''){
     load_include('page-title', ['title' => $title, 'image' => $image]);
 }
 
+function has_include($file){
+    return is_file(get_template_directory() . '/includes/' . $file . '.php');
+}
 function load_include($file, $args = []){
     $filename = 'includes/' . $file . '.php';
     extract($args);
