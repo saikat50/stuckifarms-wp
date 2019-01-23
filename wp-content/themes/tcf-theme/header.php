@@ -8,8 +8,7 @@
 		<title><?php wp_title(''); ?><?php if(is_front_page()) {bloginfo('name');}?></title>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php echo 'class="'.join(' ', get_body_class()).'"'.PHP_EOL; ?>>
-
+	<body class="<?php echo join(' ', get_body_class()) . ' ' . (is_front_page() ? 'frontpage' : ''); ?>">
 	<header class="">
 		<div class="topbar bg-theme-alt text-white">
 			<div class="container">
@@ -27,7 +26,7 @@
 			</div>
 		</div>
 		<div class="main-menu">
-			<div class="bg bg-theme-alt main-menu-bg"></div>
+			<div class="bg main-menu-bg"></div>
 			<div class="container">
 				<nav class="navbar navbar-expand-lg">
 					<a class="navbar-brand" href="<?php echo site_url(); ?>">
