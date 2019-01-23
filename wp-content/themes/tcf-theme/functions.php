@@ -363,20 +363,30 @@ add_action('wp_enqueue_scripts', 'template_fonts');
 
 function template_scripts_and_styles(){
 	//styles
-	wp_register_style( 'style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
-	wp_enqueue_style( 'style' );
+    load_style('style', '/assets/css/style.css');
 	
 	//scripts
-	wp_register_script( 'main', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'main' );
+    load_script('main', '/assets/js/main.js', ['jquery']);
 
     //lightslider
-    wp_register_style( 'lightslider', get_stylesheet_directory_uri() . '/assets/lightslider/css/lightslider.min.css', array(), '', 'all' );
-    wp_enqueue_style('lightslider');
-    wp_register_script( 'lightslider', get_stylesheet_directory_uri() . '/assets/lightslider/js/lightslider.min.js', array( 'jquery' ), '', true );
-    wp_enqueue_script('lightslider');
+    load_style('lightslider', '/assets/lightslider/css/lightslider.min.css');
+    load_script('lightslider', '/assets/lightslider/js/lightslider.min.js', ['jquery']);
 }
 
+function load_script($name, $path, $dependants = [], $header = true){
+    $filename = get_template_directory() . $path;
+    $filetime = is_file($filename) ? filemtime($filename) : '';
+    wp_register_script( $name, get_stylesheet_directory_uri() . $path, $dependants, $filetime, $header);
+	wp_enqueue_script( $name );
+}
+
+function load_style($name, $path, $dependants = [], $header = 'all'){
+    $filename = get_template_directory() . $path;
+    $filetime = is_file($filename) ? filemtime($filename) : '';
+
+    wp_register_style( $name, get_stylesheet_directory_uri() . $path, $dependants, $filetime, $header);
+    wp_enqueue_style( $name );
+}
 
 function get_assets_directory(){
     return get_template_directory_uri() . '/assets';

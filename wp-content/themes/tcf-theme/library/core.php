@@ -54,9 +54,9 @@ function tcf_head_cleanup() {
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
 	// remove WP version from css
-	add_filter( 'style_loader_src', 'tcf_remove_wp_ver_css_js', 9999 );
+	//add_filter( 'style_loader_src', 'tcf_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
-	add_filter( 'script_loader_src', 'tcf_remove_wp_ver_css_js', 9999 );
+	//add_filter( 'script_loader_src', 'tcf_remove_wp_ver_css_js', 9999 );
 
 }
 
@@ -135,43 +135,32 @@ function tcf_scripts_and_styles() {
 
 		//Jquery
 		wp_deregister_script('jquery');
-	    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.3.1.min.js', false, null, false);
-	    wp_enqueue_script('jquery');
+		load_script('jquery', '/assets/js/jquery-3.3.1.min.js', [], false);
 
 		//FONT AWESOME 
-		wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/css/fontawesome.min.css', array(), '', 'all' );
-		wp_enqueue_style( 'fontawesome' );
+		load_style('fontawesome', '/assets/css/fontawesome.min.css');
 
-		wp_register_style( 'fa-regular', get_template_directory_uri() . '/assets/css/regular.css', array(), '', 'all' );
-		wp_enqueue_style( 'fa-regular' );
+		load_style('fa-regular', '/assets/css/regular.css');
 
-		wp_register_style( 'fa-brands', get_template_directory_uri() . '/assets/css/brands.css', array(), '', 'all' );
-		wp_enqueue_style( 'fa-brands' );
+		load_style('fa-brands', '/assets/css/brands.css');
 
 		// BOOTSTRAP 4
-		wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '', 'all' );
-		wp_enqueue_style( 'bootstrap' );
+		load_style('bootstrap', '/assets/css/bootstrap.min.css');
 
-		wp_register_style( 'bootstrap-patch', get_template_directory_uri() . '/assets/css/bootstrap-patch.css', array(), '', 'all' );
-		wp_enqueue_style( 'bootstrap-patch' );
+		load_style('bootstrap-patch', '/assets/css/bootstrap-patch.css');
 
-		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'bootstrap' );
+		load_script('bootstrap', '/assets/js/bootstrap.bundle.min.js', ['jquery']);
 
 		// SEGOE UI
-		wp_register_style( 'segoe-ui', get_template_directory_uri() . '/assets/css/segoe-ui.css', array(), '', 'all' );
-		wp_enqueue_style( 'segoe-ui' );
+		load_style('segoe-ui', '/assets/css/segoe-ui.css');
 
 		// PROXIMA NOVA
-		wp_register_style( 'proxima-nova', get_template_directory_uri() . '/assets/css/proxima-nova.css', array(), '', 'all' );
-		wp_enqueue_style( 'proxima-nova' );
+		load_style('proxima-nova', '/assets/css/proxima-nova.css');
 
 		// OWL CAROUSEL 
-		wp_register_style( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl/assets/owl.carousel.min.css', array(), '', 'all' );
-		wp_enqueue_style( 'owl-carousel' );
+		load_style('owl-carousel', '/assets/js/owl/assets/owl.carousel.min.css');
 
-		wp_register_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl/owl.carousel.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'owl-carousel' );
+		load_script('owl-carousel', '/assets/js/owl/owl.carousel.min.js', ['jquery']);
 
 	    // comment reply script for threaded comments
 	    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
