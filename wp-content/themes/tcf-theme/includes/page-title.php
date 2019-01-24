@@ -4,7 +4,7 @@
         <div class="container">
             <div class="text-wrap d-flex">
                 <?php if($title){ ?>
-                    <h1 class="mt-auto mx-auto"><?php echo $title; ?></h1>
+                    <h1 class="my-auto mx-auto"><?php echo $title; ?></h1>
                 <?php } ?>
             </div>
             

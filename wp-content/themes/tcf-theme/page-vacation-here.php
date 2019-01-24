@@ -12,6 +12,7 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
+get_header();
 
 if (have_posts()){
 	while (have_posts()){
@@ -19,7 +20,7 @@ if (have_posts()){
 
         page_title_block('Vacation At Stucki Farms');
 
-        load_include('vacation-here-breadcrumbs', ['page' => $post]);
+        //load_include('vacation-here-breadcrumbs', ['page' => $post]);
 
         ?>
         <div class="section">
@@ -30,3 +31,5 @@ if (have_posts()){
         <?php 
     }
 }
+
+get_footer();
