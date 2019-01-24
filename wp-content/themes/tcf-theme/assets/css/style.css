@@ -121,21 +121,10 @@ header .nav-link:hover {
 	text-decoration: underline;
 }
 
-.main-menu-bg {
-	position: absolute;
-	height: 65px;
-	width: 100%;
-	top: 45px;
-}
 
-.topbar .navbar-nav {
-	position: relative;
-	z-index: 10;
-}
 .main-menu {
 	position: relative;
 	z-index: 8;
-	margin-top: -45px;
 }
 .main-menu .dropdown-menu {
 	background: #541B00;
@@ -167,6 +156,14 @@ header .nav-link:hover {
 .first-block, 
 .page-title-block {
 	margin-top: -108px;
+}
+
+.frontpage .first-block {
+    margin-top: 0;
+}
+
+.navbar-brand {
+    height: 50px;
 }
 .page-title-block {
 	position: relative;
@@ -206,7 +203,7 @@ header .navbar-toggler {
 	z-index: 2;
 }
 .video-banner {
-	height: 90vh;
+	height: 80vh;
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
@@ -227,7 +224,6 @@ header .navbar-toggler {
 	}
 	.main-menu .navbar-brand {
 		height: 50px;
-		margin-top: 40px;
 	}
 }
 @media(max-width: 991px){
@@ -245,9 +241,6 @@ header .navbar-toggler {
 	}
 }
 @media (min-width: 992px){
-	.frontpage .main-menu .main-menu-bg {
-		background: #541B00;
-	}
 	.navbar-expand-lg .navbar-nav .nav-link {
 		padding-right: .75rem;
 		padding-left: .75rem;
@@ -255,6 +248,11 @@ header .navbar-toggler {
 	.main-menu .navbar {
 		padding-right: 0;
 	}
+}
+@media(min-width: 1192px){
+    .navbar-brand {
+        transform: translateY(-10px);
+    }
 }
 
 .owl-dots {

@@ -10,6 +10,7 @@
 	</head>
 	<body class="<?php echo join(' ', get_body_class()) . ' ' . (is_front_page() ? 'frontpage' : ''); ?>">
 	<header class="">
+		<!--
 		<div class="topbar bg-theme-alt text-white">
 			<div class="container">
 				<div class="d-flex">
@@ -25,18 +26,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-menu">
-			<div class="bg main-menu-bg"></div>
-			<div class="container">
+		-->
+		<div class="main-menu bg-theme-alt">
+			<div class="container-fluid">
 				<nav class="navbar navbar-expand-lg">
 					<a class="navbar-brand" href="<?php echo site_url(); ?>">
 						<img src="<?php echo the_field('logo', 'option'); ?>" alt="Planstin" class="img-fluid">
 					</a>
-					<button class="navbar-toggler align-self-end align-self-lg-middle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<i class="far fa-bars"></i>
 					</button>
 
-					<div class="collapse navbar-collapse align-self-end align-self-xl-center" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto">
 							<?php wp_nav_menu(array(
 								'container' => false,
