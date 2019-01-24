@@ -36,21 +36,21 @@ if (have_posts()){
                    <div class="col-md-8">
                        <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/SC-8-2%20(1).jpg" class="img-fluid" alt="">
                    </div>
-                   <div class="col-md-4 invest-arrow m-mgrt-20">
-                       <div class="col-lg-4 mb-4">
+                    <div class="col-md-4 invest-arrow m-mgrt-20">
+                       <div class="mb-4">
                             <a href="" class="btn btn-arrow">COTTAGES</a>
                         </div> 
-                        <div class="col-lg-4 mb-4">
+                        <div class="mb-4">
                             <a href="" class="btn btn-arrow">VILLAS</a>
                         </div>
                         <div class="w-100"></div>
-                        <div class="col-lg-4 mb-4">
+                        <div class="mb-4">
                             <a href="" class="btn btn-arrow">LOTS AVAILABLE</a>
                         </div>
-                        <div class="col-lg-4 mb-4">
+                        <div class="mb-4">
                             <a href="" class="btn btn-arrow">SCHEDULE A VISIT</a>
                         </div>
-                        <div class="col-lg-4 mb-4">
+                        <div class="mb-4">
                             <a href="" class="btn btn-arrow">TALK TO AN AGENT</a>
                         </div>
                    </div>
